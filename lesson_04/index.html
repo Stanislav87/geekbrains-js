@@ -3,19 +3,52 @@
 <head>
 	<meta charset="UTF-8">
 	<script src="jquery/jquery-2.1.4.min.js"></script>
+	<style class="style_li">
+.style_li, .li_plus {
+	display: inline-block;
+	color: white;
+	background-color: gray;
+	cursor: pointer;
+}
+</style>
 	<script>(function($) {
-		$(function(){
-			$("#one").css({color: "red", 'background-color': 'grey'});
 
+		($)(function(){
+
+		$('#one').css({color: 'red', 'background-color': 'gray'});
+		$('li').addClass('style_li');
+		
+		$('.plus').click(function(){
+			$(document).on('click', '.plus', function() {
+				$('.plus').after('<li class="li_plus">Вкладка</li>');
+				$('.li_plus').show('slow');
+				
+				
 		});
-
+			$(document).on('click', '.minus', function() {
+				$('.li_plus').hide('slow');
+			});
+	});
+	});
 	})(jQuery);
 	</script>
 	
 	<title>Document</title>
 </head>
 <body>
+
+
 <div id="one">Один</div>
+
+<ul id="list">
+	<li>Вкладка №1</li>
+	<li>Вкладка №2</li>
+	<li>Вкладка №3</li>
+	<li>Вкладка №4</li>
+	<li class="plus">+</li>
+	<li class="minus">-</li>
+	<li class="li_plus">Вкладка</li>
+</ul>
 	
 </body>
 </html>
