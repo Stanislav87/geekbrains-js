@@ -1,0 +1,22 @@
+li {
+	list-style: none;
+	cursor: pointer;
+	color: white;
+	background-color: gray;
+}
+
+li:hover {
+	background-color: #763B3B;
+}
+
+#list li {
+	display: inline-block;
+
+}
+
+div {
+	width: 500px;
+	position: relative;
+	left: 50px;
+	background-color: #F4F4F4;
+}
