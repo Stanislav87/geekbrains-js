@@ -2,34 +2,61 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
 	<script src="jquery/jquery-2.1.4.min.js"></script>
-	<style class="style_li">
-.style_li, .li_plus {
-	display: inline-block;
-	color: white;
-	background-color: gray;
-	cursor: pointer;
-}
-</style>
-	<script>(function($) {
-
-		($)(function(){
-
-		$('#one').css({color: 'red', 'background-color': 'gray'});
-		$('li').addClass('style_li');
-		
-		$('.plus').click(function(){
-			$(document).on('click', '.plus', function() {
-				$('.plus').after('<li class="li_plus">Вкладка</li>');
-				$('.li_plus').show('slow');
-				
-				
-		});
-			$(document).on('click', '.minus', function() {
-				$('.li_plus').hide('slow');
+	<script>
+	(function($) {
+		($)(function() {
+			$('#list li').css({'color': 'white', 'background-color': 'gray',
+				'width': '100px', 'text-align': 'center'});
+			$('#control li').css({'display': 'block', 'background-color': 'red', 'color': 'white', 'width': '80px', 'margin-top': '10px', 'text-align': 'center'});
+			$('.plus').click(function(){
+				$('li').eq(3).after('<li>Строка №</li>');
 			});
-	});
-	});
+
+			$('.minus').click(function(){
+				$('li').eq(4).remove();
+			});
+
+			$('.hide').click(function(){
+				$('#list').hide(1500);
+			});
+
+			$('.show').click(function(){
+				$('#list').show(1500);
+			});
+
+			$('div').hide();
+
+			$('li').eq(0).click(function(){
+				$('.block').show(1000);
+				$('.block_1, .block_2, .block_3').hide(300);
+			});
+
+			$('li').eq(1).click(function(){
+				$('.block, .block_2, .block_3').hide(300);
+				$('.block_1').show(1000);
+			});
+
+			$('li').eq(2).click(function(){
+				$('.block, .block_1, .block_3').hide(300);
+				$('.block_2').show(1000);
+			});
+
+			$('li').eq(3).click(function(){
+				$('.block, .block_1, .block_2').hide(300);
+				$('.block_3').show(1000);
+			});
+
+				$('#list li').hover(function(){
+					$(this).css('background-color', '#763B3B');},
+					function() {
+						$(this).css('background-color', 'gray');
+
+			}); 
+
+		});
+
 	})(jQuery);
 	</script>
 	
@@ -37,17 +64,30 @@
 </head>
 <body>
 
-
-<div id="one">Один</div>
-
 <ul id="list">
 	<li>Вкладка №1</li>
 	<li>Вкладка №2</li>
 	<li>Вкладка №3</li>
 	<li>Вкладка №4</li>
-	<li class="plus">+</li>
-	<li class="minus">-</li>
-	<li class="li_plus">Вкладка</li>
+</ul>
+
+<div class="block"><p>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p> </div>
+
+<div class="block_1"><p>
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. </p> </div>
+
+<div class="block_2"><p>
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p> </div>
+
+<div class="block_3"><p>
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. </p> </div>
+
+<ul id="control"> 
+<li class="plus">Добавить</li>
+<li class="minus">Удалить</li>
+<li class="hide">Спрятать</li>
+<li class="show">Показать</li>
 </ul>
 	
 </body>
