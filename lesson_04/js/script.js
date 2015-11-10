@@ -1,15 +1,15 @@
-(function($){
-    $(function(){      
-        $('li').eq(0).addClass('active');
-        $('p').hide();
-        $('p').eq(0).show();
+(function($){ //функция вызывающая сама себя
+    $(function(){ //функция      
+        $('li').eq(0).addClass('active'); //выбрали первый элемент li и добавили ему класс active
+        $('p').hide(); // скрыли все элементы p
+        $('p').eq(0).show(); //показали первый элемент p
 
-        $('li').click(function(event){
-            var i = $('li').index(event.target);
-            $('p').hide();
-            $('p').eq(i).show();
-            $('li').removeClass('active');
-            $(this).addClass('active');
+        $('li').click(function(event){ // функция при клике
+            var i = $('li').index(event.target); //???не совсем понимаю этот момент???
+            $('p').hide(); // скрыли все элементы p
+            $('p').eq(i).show(); // возвращает нужный элемент p
+            $('li').removeClass('active'); //удаляет класс с неактивного элемента li
+            $(this).addClass('active'); // добавляет класс active выбранному(активному) элементу li
         });
     });
 })(jQuery);
