@@ -3,20 +3,32 @@ li {
 	cursor: pointer;
 	color: white;
 	background-color: gray;
+	display: inline-block;
+	border: 1px solid black;
+	padding: 3px;
+	margin: 3px;
 }
 
 li:hover {
-	background-color: #763B3B;
+	background-color: #EFEFEF;
+	color: black;
+	border: 1px solid #9B4E4E;
 }
 
-#list li {
-	display: inline-block;
-
+.active {
+	background-color: #5F0000;
+	color: white;
+	font-weight: bold;
 }
 
-div {
-	width: 500px;
+#page {
+	margin: 20px;
+	padding: 0;
+}
+
+.block {
 	position: relative;
-	left: 50px;
-	background-color: #F4F4F4;
+	left: 43px;
+	width: 600px;
+	background-color: #EFEFEF;
 }
